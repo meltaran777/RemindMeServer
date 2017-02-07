@@ -7,6 +7,13 @@
     <groupId>com.bohdankhrystov.remindme.server</groupId>
     <artifactId>com.bohdankhrystov.remindme.server</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <spring-core.version>4.3.6.RELEASE</spring-core.version>
+        <spring-data-jpa.version>1.11.0.RELEASE</spring-data-jpa.version>
+        <hibernate-core.version>5.2.6.Final</hibernate-core.version>
+        <postgresql.version>9.4.1212.jre7</postgresql.version>
+        <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
+    </properties>
     <packaging>war</packaging>
 
     <dependencies>
@@ -15,14 +22,42 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.6.RELEASE</version>
+            <version>${spring-core.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.3.6.RELEASE</version>
+            <version>${spring-core.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons-dbcp2.version}</version>
         </dependency>
 
 
