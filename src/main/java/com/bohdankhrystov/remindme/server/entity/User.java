@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Bodia on 07.02.2017.
@@ -25,7 +26,8 @@ public class User {
     private int idVK;
 
     @Column(name = "birth_date")
-    private DateTime birthDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date birthDate;
 
     @Column(name = "date_format")
     private String dateFormat;
@@ -38,6 +40,10 @@ public class User {
 
     public User() {
 
+    }
+
+    public User(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -56,11 +62,11 @@ public class User {
         this.idVK = idVK;
     }
 
-    public DateTime getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(DateTime birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

@@ -1,6 +1,7 @@
 package com.bohdankhrystov.remindme.server;
 
 import com.bohdankhrystov.remindme.server.config.WebConfig;
+import com.bohdankhrystov.remindme.server.repository.UserRepository;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -16,6 +17,8 @@ import javax.servlet.ServletRegistration;
 public class Application implements WebApplicationInitializer {
 
     private static final String DISPATCHER = "daspatcher";
+
+    private UserRepository repository;
 
     public void onStartup(ServletContext servletContext) throws ServletException {
 

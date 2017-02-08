@@ -1,24 +1,46 @@
 package com.bohdankhrystov.remindme.server.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.bohdankhrystov.remindme.server.entity.User;
+import com.bohdankhrystov.remindme.server.repository.UserRepository;
+import com.bohdankhrystov.remindme.server.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Bodia on 07.02.2017.
  */
 
-@Controller
+@RestController
 @RequestMapping("/reminder")
 public class RemindController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
-    public String getReminder(ModelMap model) {
-        return "My reminder";
+    public List<User> getUserList() {
+        return userService.getAll();
     }
 
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public User getUser(@PathVariable("id") Long id) {
+        return userService.getById(id);
+    }
+
+    @RequestMapping(value = "/save/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public User saveUser(@RequestBody User user) {
+        return userService.save(user);
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteUser(@PathVariable long id) {
+        userService.remove(id);
+    }
 
 }
